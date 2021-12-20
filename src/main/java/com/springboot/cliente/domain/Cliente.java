@@ -1,4 +1,8 @@
-package com.springboot.cliente;
+package com.springboot.cliente.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 import javax.persistence.*;
 
@@ -27,7 +31,29 @@ public class Cliente {
 
 	@Column(nullable = false, length = 11)
 	private String telefone;
+	
+	private List<Informações> informações = new ArrayList<>();
+	
+	
+	
 
+
+	public Cliente(long id, String nome, String email, String cpf, String telefone) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.email = email;
+		this.cpf = cpf;
+		this.telefone = telefone;
+	}
+
+
+
+	public Cliente() {
+		super();
+	}
+	
+	
 
 	public long getId() {
 
@@ -76,4 +102,41 @@ public class Cliente {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+
+
+	public List<Informações> getInformações() {
+		return informações;
+	}
+
+
+
+	public void setInformações(List<Informações> informações) {
+		this.informações = informações;
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return id == other.id;
+	}
+	
+	
+
+	
 }
