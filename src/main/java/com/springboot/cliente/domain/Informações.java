@@ -1,6 +1,16 @@
 package com.springboot.cliente.domain;
 
-public class Informações {
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity 
+public class Informações implements Serializable {
+	
+	
+	private static final long serialVersionUID = 1L;
 	
 	private String consultas_marcadas;
 	private String consultas_relizadas;
@@ -8,6 +18,8 @@ public class Informações {
 	private String exames;
 	private String descrição;
 	
+	@ManyToOne
+	@JoinColumn(name = "categoria_id")
 	private Cliente cliente;
 
 	public Informações() {

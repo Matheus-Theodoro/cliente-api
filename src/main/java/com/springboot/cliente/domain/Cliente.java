@@ -1,5 +1,6 @@
 package com.springboot.cliente.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -14,8 +15,11 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Cliente {
+public class Cliente implements Serializable {
 	
+	
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -32,6 +36,7 @@ public class Cliente {
 	@Column(nullable = false, length = 11)
 	private String telefone;
 	
+	@OneToMany(mappedBy = "cliente")
 	private List<Informações> informações = new ArrayList<>();
 	
 	
