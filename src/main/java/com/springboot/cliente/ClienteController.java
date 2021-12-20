@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.cliente.domain.Cliente;
+import com.springboot.cliente.repositories.ClienteRepository;
 
 import lombok.AllArgsConstructor;
 
