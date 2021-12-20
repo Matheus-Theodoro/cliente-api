@@ -9,4 +9,4 @@ import com.springboot.cliente.domain.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 	
 
-}
+} 
